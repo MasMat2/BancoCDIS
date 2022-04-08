@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Null;
 
 @Entity
 @Table(name = "clientes" )
@@ -40,7 +41,7 @@ public class Cliente implements Serializable{
 	private String email;
 	
 	@JoinColumn(name = "cuenta", referencedColumnName = "id", nullable = false)
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(optional=true, fetch = FetchType.LAZY)
 	private Cuenta cuenta;
 
 	public Long getId() {

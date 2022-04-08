@@ -39,7 +39,7 @@ public class Empleado implements Serializable{
 	private String puesto;
 	
 	@Column(name = "dia_ingreso")
-	@NonNull
+	@NotEmpty
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date diaIngreso;

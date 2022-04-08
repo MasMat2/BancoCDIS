@@ -13,6 +13,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+import org.springframework.lang.NonNull;
+
 @Entity
 @Table(name = "tarjetas" )
 public class Tarjeta implements Serializable{
@@ -27,9 +29,9 @@ public class Tarjeta implements Serializable{
 	@NotEmpty
 	private String numeroTarjeta;
 	
-	@JoinColumn(name = "cuenta", referencedColumnName = "id", nullable = false)
-	@OneToOne(optional = false, fetch = FetchType.LAZY)
-	private Cuenta cuenta;
+	@Column()
+	@NonNull
+	private Long cuentaId;
 	
 	@Column(name = "icv", nullable = false, length = 3)
 	@NotEmpty
@@ -55,12 +57,12 @@ public class Tarjeta implements Serializable{
 		this.numeroTarjeta = numeroTarjeta;
 	}
 
-	public Cuenta getCuenta() {
-		return cuenta;
+	public Long getCuentaId() {
+		return cuentaId;
 	}
 
-	public void setCuenta(Cuenta cuenta) {
-		this.cuenta = cuenta;
+	public void setCuentaId(Long cuentaId) {
+		this.cuentaId = cuentaId;
 	}
 
 	public String getIcv() {

@@ -5,15 +5,13 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotEmpty;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.NonNull;
@@ -28,16 +26,16 @@ public class Cuenta implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@JoinColumn(name = "cliente", referencedColumnName = "id", nullable = false)
-	@OneToOne(optional = false, fetch = FetchType.LAZY)
-	private Cliente cliente;
+	@Column()
+	@NonNull
+	private Long clienteId;
 		
 	@Column(name = "saldo_actual")
 	@NonNull
 	private double saldoActual;
 	
 	@Column(name = "dia_creacion")
-	@NonNull
+	@NotEmpty
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date diaCreacion;
@@ -50,12 +48,13 @@ public class Cuenta implements Serializable{
 		this.id = id;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
+
+	public Long getClienteId() {
+		return clienteId;
 	}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public void setClienteId(Long clienteId) {
+		this.clienteId = clienteId;
 	}
 
 	public double getSaldoActual() {

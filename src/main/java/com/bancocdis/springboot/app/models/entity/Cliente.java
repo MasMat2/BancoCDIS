@@ -13,6 +13,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+import org.springframework.lang.NonNull;
+
 @Entity
 @Table(name = "clientes" )
 public class Cliente implements Serializable{
@@ -39,9 +41,9 @@ public class Cliente implements Serializable{
 	@NotEmpty
 	private String email;
 	
-	@JoinColumn(name = "cuenta", referencedColumnName = "id", nullable = false)
-	@OneToOne(optional = false, fetch = FetchType.LAZY)
-	private Cuenta cuenta;
+	@Column
+	@NonNull
+	private Long cuentaId;
 
 	public Long getId() {
 		return id;
@@ -83,12 +85,14 @@ public class Cliente implements Serializable{
 		this.email = email;
 	}
 
-	public Cuenta getCuenta() {
-		return cuenta;
+	public Long getCuentaId() {
+		return cuentaId;
 	}
 
-	public void setCuenta(Cuenta cuenta) {
-		this.cuenta = cuenta;
+	public void setCuentaId(Long cuentaId) {
+		this.cuentaId = cuentaId;
 	}
+
+
 	
 }

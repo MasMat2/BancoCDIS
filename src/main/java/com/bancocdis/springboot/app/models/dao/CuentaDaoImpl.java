@@ -34,4 +34,10 @@ public class CuentaDaoImpl implements ICuentaDao {
 		}
 	}
 
+	@Override
+	public Cuenta findOne(Long id) {
+		// TODO Auto-generated method stub
+		return em.find(Cuenta.class, id);
+	}
+
 }

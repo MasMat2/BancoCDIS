@@ -19,6 +19,10 @@ INSERT INTO Tarjetas(id, icv, numero_tarjeta, tipo_tarjeta, cuenta) VALUES(2, '3
 INSERT INTO Tarjetas(id, icv, numero_tarjeta, tipo_tarjeta, cuenta) VALUES(3, '345', '3333444455556666', 'deposito', 3);
 
 
-INSERT INTO Empleados(id, nombre, apellido, puesto, dia_ingreso) VALUES(1, 'Jim', 'Halpert', 'contador', '2021-05-05');
-INSERT INTO Empleados(id, nombre, apellido, puesto, dia_ingreso) VALUES(2, 'Pam', 'Beesly', 'recepcionista', '2021-06-05');
-INSERT INTO Empleados(id, nombre, apellido, puesto, dia_ingreso) VALUES(3, 'Michale', 'Scott', 'gerente', '2021-07-05');
+INSERT INTO Empleados(id, nombre, apellido, puesto, dia_ingreso, banco) VALUES(1, 'Jim', 'Halpert', 'contador', '2021-05-05', 1);
+INSERT INTO Empleados(id, nombre, apellido, puesto, dia_ingreso, banco) VALUES(2, 'Pam', 'Beesly', 'recepcionista', '2021-06-05', 2);
+INSERT INTO Empleados(id, nombre, apellido, puesto, dia_ingreso, banco) VALUES(3, 'Michale', 'Scott', 'gerente', '2021-07-05', 3);
+
+UPDATE Clientes SET cuenta=1 WHERE id=1;
+UPDATE Clientes SET cuenta=2 WHERE id=2;
+UPDATE Clientes SET cuenta=3 WHERE id=3;

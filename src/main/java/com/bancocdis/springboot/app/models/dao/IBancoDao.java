@@ -6,4 +6,6 @@ import com.bancocdis.springboot.app.models.entity.Banco;
 
 public interface IBancoDao {
 	public List<Banco> findAll();
+	
+	public Banco findOne(Long id);
 }

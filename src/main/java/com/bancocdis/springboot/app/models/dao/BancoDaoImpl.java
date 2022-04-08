@@ -23,4 +23,10 @@ public class BancoDaoImpl implements IBancoDao {
 		return em.createQuery("from Banco").getResultList();
 	}
 
+	@Override
+	public Banco findOne(Long id) {
+		// TODO Auto-generated method stub
+		return em.find(Banco.class, id);
+	}
+
 }

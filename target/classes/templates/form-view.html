@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}"></title>
+</head>
+<body>
+	<h3 th:text="${titulo}"></h3>
+	<div>
+<!-- 		<p th:if="${clientes.isEmpty()}">La lista de clientes esta vacia</p> -->
+		<table>
+			<thead>
+				<tr>
+					<th th:each="campo: ${objeto_campos}" th:text="${campo}"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td  th:each="valor: ${objeto_valores}" th:text="${valor}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

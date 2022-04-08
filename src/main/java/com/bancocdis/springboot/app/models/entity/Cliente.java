@@ -40,7 +40,7 @@ public class Cliente implements Serializable{
 	private String email;
 	
 	@JoinColumn(name = "cuenta", referencedColumnName = "id", nullable = false)
-	@OneToOne(optional = false, fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.LAZY)
 	private Cuenta cuenta;
 
 	public Long getId() {

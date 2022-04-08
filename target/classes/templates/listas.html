@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}"></title>
+</head>
+<body>
+	<h3 th:text="${titulo}"></h3>
+	<div>
+		<h1>Clientes Lista</h1>
+		<p th:if="${clientes.isEmpty()}">La lista de clientes esta vacia</p>
+		<table>
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Telefono</th>
+					<th>Email</th>
+					<th>Cuenta</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cliente: ${clientes}"></tr>
+				<tr th:each="cliente: ${clientes}">
+					<th th:text="${cliente.getId()}"></th>
+					<th th:text="${cliente.getNombre()}"></th>
+					<th th:text="${cliente.getApellido()}"></th>
+					<th th:text="${cliente.getNumeroTelefonico()}"></th>
+					<th th:text="${cliente.getEmail()}"></th>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div>
+		<h1>Bancos Lista</h1>
+		<p th:if="${bancos.isEmpty()}">La lista de bancos esta vacia</p>
+		<table>
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nombre</th>
+					<th>Ubicacion</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="banco: ${bancos}"></tr>
+				<tr th:each="banco: ${bancos}">
+					<th th:text="${banco.getId()}"></th>
+					<th th:text="${banco.getNombre()}"></th>
+					<th th:text="${banco.getUbicacion()}"></th>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div>
+		<h1>Cuentas Lista</h1>
+		<p th:if="${cuentas.isEmpty()}">La lista de cuentas esta vacia</p>
+		<table>
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Cliente</th>
+					<th>Saldo</th>
+					<th>Dia de creacion</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cuenta: ${cuentas}"></tr>
+				<tr th:each="cuenta: ${cuentas}">
+					<th th:text="${cuenta.getId()}"></th>
+					<th th:text="${cuenta.getCliente().getId()}"></th>
+					<th th:text="${cuenta.getSaldoActual()}"></th>
+					<th th:text="${cuenta.getDiaCreacion()}"></th>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div>
+		<h1>Tarjetas Lista</h1>
+		<p th:if="${tarjetas.isEmpty()}">La lista de tarjetas esta vacia</p>
+		<table>
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Numero Tarjeta</th>
+					<th>Cuenta</th>
+					<th>ICV</th>
+					<th>Tipo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="tarjeta: ${tarjetas}"></tr>
+				<tr th:each="tarjeta: ${tarjetas}">
+					<th th:text="${tarjeta.getId()}"></th>
+					<th th:text="${tarjeta.getNumeroTarjeta()}"></th>
+					<th th:text="${tarjeta.getCuenta().getId()}"></th>
+					<th th:text="${tarjeta.getIcv()}"></th>
+					<th th:text="${tarjeta.getTipoTarjeta()}"></th>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div>
+		<h1>Empleados Lista</h1>
+		<p th:if="${empleados.isEmpty()}">La lista de empleados esta vacia</p>
+		<table>
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Puesto</th>
+					<th>Dia Ingreso</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="empleado: ${empleados}"></tr>
+				<tr th:each="empleado: ${empleados}">
+					<th th:text="${empleado.getId()}"></th>
+					<th th:text="${empleado.getNombre()}"></th>
+					<th th:text="${empleado.getApellido()}"></th>
+					<th th:text="${empleado.getPuesto()}"></th>
+					<th th:text="${empleado.getDiaIngreso()}"></th>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
